@@ -10,6 +10,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
   <!-- Font Awesome for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
+  <!-- PWA Manifest -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#00ffe7">
   <style>
     html {
       scroll-behavior: smooth;
@@ -28,17 +31,10 @@
     }
     [data-theme="light"] {
       --bg-gradient: linear-gradient(135deg, #f8fafc 0%, #e0e7ef 100%);
-      --neon: #007cf0;
-      --neon-glow: 0 0 12px #007cf0, 0 0 24px #007cf088;
+      --neon: #222;
+      --neon-glow: 0 0 12px #222, 0 0 24px #2228;
       --text: #222;
       --card: #fff9;
-    }
-    [data-theme="cosmic"] {
-      --bg-gradient: radial-gradient(ellipse at 60% 40%, #2e026d 0%, #0f2027 100%);
-      --neon: #ff00ea;
-      --neon-glow: 0 0 16px #ff00ea, 0 0 32px #ff00ea88;
-      --text: #f5eaff;
-      --card: #2e026dcc;
     }
     .neon-border {
       border: 4px solid var(--neon);
@@ -157,7 +153,7 @@
   <header class="relative z-10 flex flex-col items-center justify-center min-h-screen text-center px-4">
     <div class="mt-24 mb-8">
       <div class="inline-block neon-border rounded-full p-2 transition-all duration-300" style="box-shadow: var(--neon-glow);">
-        <img src="https://avatars.githubusercontent.com/u/9919?v=4" alt="Profile Photo" width="160" height="160"
+        <img src="profile.jpeg" alt="Profile Photo" width="160" height="160"
           class="rounded-full object-cover transition-all duration-300" id="profile-photo" loading="lazy"/>
       </div>
     </div>
@@ -165,17 +161,14 @@
       Nithissh <span class="text-[var(--neon)]">Portfolio</span>
     </h1>
     <p class="max-w-xl mx-auto text-lg md:text-2xl mb-8" style="color:var(--text)">
-      🚀 Building the future, one pixel at a time. <span class="text-[var(--neon)]">AI, code, and cosmic creativity.</span>
+      Building the future, one pixel at a time. <span class="text-[var(--neon)]">AI, code, and cosmic creativity.</span>
     </p>
     <div class="flex flex-wrap gap-4 justify-center mb-8">
       <button class="theme-btn px-4 py-2 rounded-lg border-2 border-transparent microinteraction" data-theme="light">
-        ☀️ Light
+        Light
       </button>
       <button class="theme-btn px-4 py-2 rounded-lg border-2 border-transparent microinteraction" data-theme="dark">
-        🌙 Dark
-      </button>
-      <button class="theme-btn px-4 py-2 rounded-lg border-2 border-transparent microinteraction" data-theme="cosmic">
-        🪐 Cosmic
+        Dark
       </button>
       <button id="voice-btn" class="px-4 py-2 rounded-lg border-2 border-[var(--neon)] microinteraction" title="Voice Command">
         <i class="fa fa-microphone"></i> Voice
@@ -183,7 +176,7 @@
       <a href="#contact" class="px-4 py-2 rounded-lg border-2 border-[var(--neon)] microinteraction" style="color:var(--neon)">
         Contact
       </a>
-      <a href="resume.pdf" download class="px-4 py-2 rounded-lg border-2 border-[var(--neon)] microinteraction" style="color:var(--neon)">
+      <a href="RESUME.pdf" download class="px-4 py-2 rounded-lg border-2 border-[var(--neon)] microinteraction" style="color:var(--neon)">
         <i class="fa fa-download"></i> Resume
       </a>
     </div>
@@ -192,6 +185,7 @@
         <a href="https://github.com/" target="_blank" class="text-2xl microinteraction" style="color:var(--neon)"><i class="fab fa-github"></i></a>
         <a href="https://linkedin.com/" target="_blank" class="text-2xl microinteraction" style="color:var(--neon)"><i class="fab fa-linkedin"></i></a>
         <a href="mailto:youremail@example.com" class="text-2xl microinteraction" style="color:var(--neon)"><i class="fa fa-envelope"></i></a>
+        <a href="https://wa.me/9342562305" target="_blank" class="text-2xl microinteraction" style="color:var(--neon)" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
       </div>
     </div>
     <div class="mt-16 animate-bounce">
@@ -199,9 +193,19 @@
     </div>
   </header>
 
+  <!-- Education Section -->
+  <section id="education" class="relative z-10 max-w-xl mx-auto my-16 px-4">
+    <h2 class="text-3xl font-bold mb-6 text-center" style="color:var(--neon)">Education</h2>
+    <div class="bg-[var(--card)] rounded-2xl shadow-lg p-6 text-center">
+      <div class="text-xl font-semibold mb-2" style="color:var(--neon)">SRM Institute of Science and Technology</div>
+      <div class="text-base mb-1" style="color:var(--text)">B.Tech in Artificial Intelligence & Machine Learning</div>
+      <div class="text-base" style="color:var(--text)">3rd Year (Pursuing)</div>
+    </div>
+  </section>
+
   <!-- AI Chatbot Section -->
   <section id="chatbot" class="relative z-10 max-w-xl mx-auto my-16 p-6 rounded-2xl shadow-lg" style="background:var(--card)">
-    <h2 class="text-2xl font-bold mb-2" style="color:var(--neon)">🤖 AI Chatbot</h2>
+    <h2 class="text-2xl font-bold mb-2" style="color:var(--neon)">AI Chatbot</h2>
     <div id="chatbot-window" class="flex flex-col gap-2 h-48 overflow-y-auto mb-2"></div>
     <form id="chatbot-form" class="flex gap-2">
       <input type="text" id="chatbot-input" class="flex-1 rounded-lg px-3 py-2 bg-transparent border border-[var(--neon)] focus:outline-none" placeholder="Ask me anything..." autocomplete="off"/>
@@ -212,7 +216,7 @@
 
   <!-- Timeline Section -->
   <section id="timeline" class="relative z-10 max-w-3xl mx-auto my-20 px-4">
-    <h2 class="text-3xl font-bold mb-8 text-center" style="color:var(--neon)">🚀 My Journey</h2>
+    <h2 class="text-3xl font-bold mb-8 text-center" style="color:var(--neon)">My Journey</h2>
     <div class="relative pl-8">
       <div class="absolute left-2 top-0 bottom-0 w-1 bg-gradient-to-b from-[var(--neon)] to-transparent"></div>
       <div id="timeline-list" class="flex flex-col gap-10">
@@ -223,8 +227,8 @@
 
   <!-- Skills Radar Chart -->
   <section id="skills" class="relative z-10 max-w-2xl mx-auto my-20 px-4">
-    <h2 class="text-3xl font-bold mb-8 text-center" style="color:var(--neon)">🛠️ Skills</h2>
-    <canvas id="radar-chart" class="radar-chart"></canvas>
+    <h2 class="text-3xl font-bold mb-8 text-center" style="color:var(--neon)">Skills</h2>
+    <canvas id="radar-chart" class="radar-chart" width="400" height="400"></canvas>
     <div class="flex flex-wrap justify-center gap-4 mt-6">
       <span class="px-3 py-1 rounded-lg microinteraction" style="background:var(--card);color:var(--neon)">JavaScript</span>
       <span class="px-3 py-1 rounded-lg microinteraction" style="background:var(--card);color:var(--neon)">React</span>
@@ -232,18 +236,66 @@
       <span class="px-3 py-1 rounded-lg microinteraction" style="background:var(--card);color:var(--neon)">UI/UX</span>
       <span class="px-3 py-1 rounded-lg microinteraction" style="background:var(--card);color:var(--neon)">Node.js</span>
       <span class="px-3 py-1 rounded-lg microinteraction" style="background:var(--card);color:var(--neon)">Cloud</span>
+      <span class="px-3 py-1 rounded-lg microinteraction" style="background:var(--card);color:var(--neon)">Python</span>
     </div>
   </section>
 
   <!-- My Universe Mindmap -->
   <section id="universe" class="relative z-10 max-w-5xl mx-auto my-20 px-4">
-    <h2 class="text-3xl font-bold mb-8 text-center" style="color:var(--neon)">🌌 My Universe</h2>
+    <h2 class="text-3xl font-bold mb-8 text-center" style="color:var(--neon)">My Universe</h2>
     <div id="mindmap" class="relative w-full h-[420px] mx-auto"></div>
+  </section>
+
+  <!-- Project Gallery Section -->
+  <section id="projects" class="relative z-10 max-w-5xl mx-auto my-20 px-4">
+    <h2 class="text-3xl font-bold mb-8 text-center" style="color:var(--neon)">Projects</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Project: nithissh-portfolio -->
+      <div class="bg-[var(--card)] rounded-2xl shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-2xl neon-border flex flex-col">
+        <div class="p-5 flex-1 flex flex-col">
+          <h3 class="text-xl font-bold mb-2" style="color:var(--neon)">nithissh-portfolio</h3>
+          <p class="text-base mb-4" style="color:var(--text)">Personal portfolio website built with modern web technologies.</p>
+          <div class="mt-auto flex gap-3">
+            <a href="https://github.com/Nithissh22/nithissh-portfolio" target="_blank" class="px-3 py-1 rounded-lg border-2 border-[var(--neon)] microinteraction text-sm" style="color:var(--neon)"><i class="fab fa-github"></i> GitHub</a>
+          </div>
+        </div>
+      </div>
+      <!-- Project: pacifier -->
+      <div class="bg-[var(--card)] rounded-2xl shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-2xl neon-border flex flex-col">
+        <div class="p-5 flex-1 flex flex-col">
+          <h3 class="text-xl font-bold mb-2" style="color:var(--neon)">pacifier</h3>
+          <p class="text-base mb-4" style="color:var(--text)">A project focused on ... (add your description here).</p>
+          <div class="mt-auto flex gap-3">
+            <a href="https://github.com/Nithissh22/pacifier" target="_blank" class="px-3 py-1 rounded-lg border-2 border-[var(--neon)] microinteraction text-sm" style="color:var(--neon)"><i class="fab fa-github"></i> GitHub</a>
+          </div>
+        </div>
+      </div>
+      <!-- Project: Hospital-Management-System -->
+      <div class="bg-[var(--card)] rounded-2xl shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-2xl neon-border flex flex-col">
+        <div class="p-5 flex-1 flex flex-col">
+          <h3 class="text-xl font-bold mb-2" style="color:var(--neon)">Hospital-Management-System</h3>
+          <p class="text-base mb-4" style="color:var(--text)">A hospital management system for efficient healthcare operations.</p>
+          <div class="mt-auto flex gap-3">
+            <a href="https://github.com/Nithissh22/Hospital-Management-System" target="_blank" class="px-3 py-1 rounded-lg border-2 border-[var(--neon)] microinteraction text-sm" style="color:var(--neon)"><i class="fab fa-github"></i> GitHub</a>
+          </div>
+        </div>
+      </div>
+      <!-- Project: cosmic-chronicle -->
+      <div class="bg-[var(--card)] rounded-2xl shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-2xl neon-border flex flex-col">
+        <div class="p-5 flex-1 flex flex-col">
+          <h3 class="text-xl font-bold mb-2" style="color:var(--neon)">cosmic-chronicle</h3>
+          <p class="text-base mb-4" style="color:var(--text)">A project focused on ... (add your description here).</p>
+          <div class="mt-auto flex gap-3">
+            <a href="https://github.com/Nithissh22/cosmic-chronicle" target="_blank" class="px-3 py-1 rounded-lg border-2 border-[var(--neon)] microinteraction text-sm" style="color:var(--neon)"><i class="fab fa-github"></i> GitHub</a>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
 
   <!-- Contact Section -->
   <section id="contact" class="relative z-10 max-w-xl mx-auto my-20 px-4">
-    <h2 class="text-3xl font-bold mb-8 text-center" style="color:var(--neon)">📬 Contact Me</h2>
+    <h2 class="text-3xl font-bold mb-8 text-center" style="color:var(--neon)">Contact Me</h2>
     <form id="contact-form" class="flex flex-col gap-4 bg-[var(--card)] p-6 rounded-2xl shadow-lg">
       <input type="text" name="name" required placeholder="Your Name" class="rounded-lg px-3 py-2 bg-transparent border border-[var(--neon)] focus:outline-none"/>
       <input type="email" name="email" required placeholder="Your Email" class="rounded-lg px-3 py-2 bg-transparent border border-[var(--neon)] focus:outline-none"/>
@@ -379,14 +431,31 @@
       voiceBtn.title = "Voice not supported";
     }
     function handleVoiceCommand(cmd) {
+      // Theme switching
       if (cmd.includes('light')) setTheme('light');
       else if (cmd.includes('dark')) setTheme('dark');
-      else if (cmd.includes('cosmic')) setTheme('cosmic');
-      else if (cmd.includes('top')) window.scrollTo({top:0,behavior:'smooth'});
-      else if (cmd.includes('contact')) document.getElementById('contact').scrollIntoView({behavior:'smooth'});
-      else if (cmd.includes('timeline') || cmd.includes('journey')) document.getElementById('timeline').scrollIntoView({behavior:'smooth'});
-      else if (cmd.includes('skills')) document.getElementById('skills').scrollIntoView({behavior:'smooth'});
-      else if (cmd.includes('universe')) document.getElementById('universe').scrollIntoView({behavior:'smooth'});
+      // Scroll to top
+      else if (cmd.includes('top') || cmd.includes('home')) window.scrollTo({top:0,behavior:'smooth'});
+      // Scroll to contact
+      else if (cmd.includes('contact') || cmd.includes('reach')) document.getElementById('contact').scrollIntoView({behavior:'smooth'});
+      // Scroll to timeline/journey/about
+      else if (cmd.includes('timeline') || cmd.includes('journey') || cmd.includes('about')) document.getElementById('timeline').scrollIntoView({behavior:'smooth'});
+      // Scroll to skills
+      else if (cmd.includes('skills') || cmd.includes('abilities')) document.getElementById('skills').scrollIntoView({behavior:'smooth'});
+      // Scroll to universe/mindmap
+      else if (cmd.includes('universe') || cmd.includes('mindmap')) document.getElementById('universe').scrollIntoView({behavior:'smooth'});
+      // Scroll to projects/portfolio
+      else if (cmd.includes('project') || cmd.includes('portfolio') || cmd.includes('work')) document.getElementById('projects').scrollIntoView({behavior:'smooth'});
+      // Download resume
+      else if (cmd.includes('resume') || cmd.includes('cv')) {
+        const resumeLink = document.querySelector('a[download]');
+        if (resumeLink) resumeLink.click();
+      }
+      // Submit contact form
+      else if (cmd.includes('send message') || cmd.includes('submit contact')) {
+        const form = document.getElementById('contact-form');
+        if (form && form.reportValidity()) form.requestSubmit();
+      }
       else alert('Voice command not recognized: ' + cmd);
     }
 
@@ -461,50 +530,74 @@
     revealTimeline();
 
     // --- Animated Radar Chart (Skills) ---
-    // Custom radar chart using canvas
+    // Improved custom radar chart using canvas
     const radar = document.getElementById('radar-chart');
     const radarCtx = radar.getContext('2d');
-    const radarLabels = ['JavaScript','React','AI/ML','UI/UX','Node.js','Cloud'];
-    const radarData = [90, 85, 80, 75, 70, 65]; // out of 100
+    const radarLabels = ['JavaScript','React','AI/ML','UI/UX','Node.js','Cloud','Python'];
+    const radarData = [90, 85, 80, 75, 70, 65, 88]; // out of 100
     function drawRadarChart(anim=1) {
       radarCtx.clearRect(0,0,radar.width,radar.height);
-      const cx = radar.width/2, cy = radar.height/2, r = 110;
-      // Draw web
+      const cx = radar.width/2, cy = radar.height/2, r = 90;
+      // Draw web with more visible grid
       for (let level=1; level<=5; level++) {
         radarCtx.beginPath();
-        for (let i=0; i<6; i++) {
-          let angle = Math.PI/3*i-Math.PI/2;
+        for (let i=0; i<radarLabels.length; i++) {
+          let angle = Math.PI*2*i/radarLabels.length-Math.PI/2;
           let x = cx + Math.cos(angle)*r*level/5;
           let y = cy + Math.sin(angle)*r*level/5;
           if (i===0) radarCtx.moveTo(x,y);
           else radarCtx.lineTo(x,y);
         }
         radarCtx.closePath();
-        radarCtx.strokeStyle = 'rgba(0,255,255,0.15)';
+        radarCtx.strokeStyle = getComputedStyle(document.documentElement).getPropertyValue('--neon')+"44";
+        radarCtx.lineWidth = 1.5;
+        radarCtx.setLineDash([4,4]);
         radarCtx.stroke();
+        radarCtx.setLineDash([]);
       }
       // Draw axes
-      for (let i=0; i<6; i++) {
-        let angle = Math.PI/3*i-Math.PI/2;
+      for (let i=0; i<radarLabels.length; i++) {
+        let angle = Math.PI*2*i/radarLabels.length-Math.PI/2;
         radarCtx.beginPath();
         radarCtx.moveTo(cx,cy);
         radarCtx.lineTo(cx+Math.cos(angle)*r, cy+Math.sin(angle)*r);
-        radarCtx.strokeStyle = 'rgba(0,255,255,0.18)';
+        radarCtx.strokeStyle = getComputedStyle(document.documentElement).getPropertyValue('--neon')+"77";
+        radarCtx.lineWidth = 1.2;
         radarCtx.stroke();
         // Label
         radarCtx.save();
-        radarCtx.translate(cx+Math.cos(angle)*(r+24), cy+Math.sin(angle)*(r+24));
+        radarCtx.translate(cx+Math.cos(angle)*(r+22), cy+Math.sin(angle)*(r+22));
         radarCtx.rotate(angle);
-        radarCtx.font = 'bold 1em Inter';
+        radarCtx.font = 'bold 1.1em Inter';
         radarCtx.fillStyle = getComputedStyle(document.documentElement).getPropertyValue('--neon');
         radarCtx.textAlign = 'center';
         radarCtx.fillText(radarLabels[i],0,0);
         radarCtx.restore();
       }
-      // Draw data
+      // Draw data area with gradient fill
+      radarCtx.save();
       radarCtx.beginPath();
-      for (let i=0; i<6; i++) {
-        let angle = Math.PI/3*i-Math.PI/2;
+      for (let i=0; i<radarLabels.length; i++) {
+        let angle = Math.PI*2*i/radarLabels.length-Math.PI/2;
+        let value = radarData[i]*anim/100;
+        let x = cx + Math.cos(angle)*r*value;
+        let y = cy + Math.sin(angle)*r*value;
+        if (i===0) radarCtx.moveTo(x,y);
+        else radarCtx.lineTo(x,y);
+      }
+      radarCtx.closePath();
+      const grad = radarCtx.createRadialGradient(cx,cy,40,cx,cy,r);
+      grad.addColorStop(0, getComputedStyle(document.documentElement).getPropertyValue('--neon')+"33");
+      grad.addColorStop(1, getComputedStyle(document.documentElement).getPropertyValue('--neon')+"00");
+      radarCtx.fillStyle = grad;
+      radarCtx.globalAlpha = 0.7;
+      radarCtx.fill();
+      radarCtx.globalAlpha = 1;
+      radarCtx.restore();
+      // Draw data outline
+      radarCtx.beginPath();
+      for (let i=0; i<radarLabels.length; i++) {
+        let angle = Math.PI*2*i/radarLabels.length-Math.PI/2;
         let value = radarData[i]*anim/100;
         let x = cx + Math.cos(angle)*r*value;
         let y = cy + Math.sin(angle)*r*value;
@@ -518,19 +611,22 @@
       radarCtx.shadowBlur = 12;
       radarCtx.stroke();
       radarCtx.shadowBlur = 0;
-      // Dots
-      for (let i=0; i<6; i++) {
-        let angle = Math.PI/3*i-Math.PI/2;
+      // Dots with glow
+      for (let i=0; i<radarLabels.length; i++) {
+        let angle = Math.PI*2*i/radarLabels.length-Math.PI/2;
         let value = radarData[i]*anim/100;
         let x = cx + Math.cos(angle)*r*value;
         let y = cy + Math.sin(angle)*r*value;
         radarCtx.beginPath();
-        radarCtx.arc(x,y,7,0,2*Math.PI);
+        radarCtx.arc(x,y,9,0,2*Math.PI);
         radarCtx.fillStyle = getComputedStyle(document.documentElement).getPropertyValue('--neon');
         radarCtx.shadowColor = getComputedStyle(document.documentElement).getPropertyValue('--neon');
-        radarCtx.shadowBlur = 8;
+        radarCtx.shadowBlur = 16;
         radarCtx.fill();
         radarCtx.shadowBlur = 0;
+        radarCtx.lineWidth = 2;
+        radarCtx.strokeStyle = '#fff';
+        radarCtx.stroke();
       }
     }
     // Animate radar chart on scroll into view
@@ -562,7 +658,7 @@
           { name: "VS Code" }, { name: "GitHub" }, { name: "Figma" }, { name: "Notion" }
         ]},
         { name: "Dream Goals", children: [
-          { name: "Build an AI startup" }, { name: "Travel to Mars" }, { name: "Write a book" }
+          { name: "Build an AI startup" }, { name: "Write a book" }
         ]}
       ]
     };
@@ -702,6 +798,13 @@
     }
     const observer = new MutationObserver(updateDynamicVisuals);
     observer.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+
+    // --- PWA Service Worker Registration ---
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('sw.js');
+      });
+    }
 
     // --- End of Script ---
   </script>
